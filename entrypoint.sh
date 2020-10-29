@@ -3,6 +3,7 @@
 # This script is based fairly heavily off bateau84/openttd's. Thanks, man!
 savepath="/config/save"
 LOADGAME_CHECK="${loadgame}x"
+SCENARIO = $1
 
 if [ ! -f /config/openttd.cfg ]; then
         # we start the server then kill it quickly to write a config file
@@ -57,6 +58,6 @@ if [ ${LOADGAME_CHECK} != "x" ]; then
         esac
 else
         echo "loadgame not set - Creating a new game."
-    	exec /app/bin/openttd -D -x -d ${DEBUG}
+    	exec /app/bin/openttd -D -x -d ${DEBUG} -g ${SCENARIO}
         exit 0
 fi
